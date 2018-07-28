@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="4ac6c812-53b4-4d13-af46-f535b7b20db1" ChangeDateTime="07/17/2018 13:56:36">
+    <Property Name="ElementName" Value="[dbo].[CompCV].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CompCV]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CvId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6dfcd575-3c6a-471c-ba32-2da87ee075b4" ChangeDateTime="07/17/2018 13:59:07">
+    <Property Name="ElementName" Value="[dbo].[CompCvCertificate].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CompCvCertificate]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CertificateId " />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="55a49a43-725d-4bff-8e53-6cad020669b3" ChangeDateTime="07/17/2018 13:59:52">
+    <Property Name="ElementName" Value="[dbo].[CompCvCertificate].[CertificateIssuingUnit ]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CompCvCertificate]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CertificateIssuingUnit" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2e2f2a74-2be0-4031-8d93-b0c68eaa6895" ChangeDateTime="07/17/2018 14:10:09">
+    <Property Name="ElementName" Value="[dbo].[CompCvEducation].[CertificateId ]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CompCvEducation]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="EducationId " />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="b057c5cf-17ba-4e57-805b-9777b742e4fd" ChangeDateTime="07/17/2018 14:10:12">
+    <Property Name="ElementName" Value="[dbo].[CompCvEducation].[CertificateIssuingUnit]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CompCvEducation]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CertificateIssuinUnit" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5ebff819-df93-4349-ab96-e65676647687" ChangeDateTime="07/17/2018 14:10:43">
+    <Property Name="ElementName" Value="[dbo].[CompCvEducation].[CertificateName ]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CompCvEducation]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AcademicDeptCategory " />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="84a0aaf5-e3ff-4a17-9641-3b908e45ce47" ChangeDateTime="07/17/2018 14:10:58">
+    <Property Name="ElementName" Value="[dbo].[CompCvEducation].[AcademicDeptNam]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CompCvEducation]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AcademicDeptName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="dea74add-384a-40f7-8f2a-720e307db194" ChangeDateTime="07/17/2018 14:14:32">
+    <Property Name="ElementName" Value="[dbo].[CompCvLanguageRequirement].[AcademicDegree]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CompCvLanguageRequirement]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Language" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="80824f01-6ac3-4169-9be7-c9402230b138" ChangeDateTime="07/17/2018 14:14:51">
+    <Property Name="ElementName" Value="[dbo].[CompCvLanguageRequirement].[AcademyName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CompCvLanguageRequirement]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Listening" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="045ee4fd-8aa4-4e11-acad-c0d2768d4252" ChangeDateTime="07/17/2018 14:14:58">
+    <Property Name="ElementName" Value="[dbo].[CompCvLanguageRequirement].[AcademicDeptCategory]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CompCvLanguageRequirement]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Reading" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="48288a95-3aa3-4e01-815d-412c2c45ab12" ChangeDateTime="07/17/2018 14:15:04">
+    <Property Name="ElementName" Value="[dbo].[CompCvLanguageRequirement].[AcademicDeptName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CompCvLanguageRequirement]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Speaking" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="196e76c3-e329-41dd-9f28-383a756bb069" ChangeDateTime="07/17/2018 14:15:07">
+    <Property Name="ElementName" Value="[dbo].[CompCvLanguageRequirement].[AttendanceSatrt]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CompCvLanguageRequirement]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Writing" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9cf7d504-3859-4f54-add6-60d1c1991d1a" ChangeDateTime="07/17/2018 14:16:20">
+    <Property Name="ElementName" Value="[dbo].[Country].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Country]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CountryId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e3828daa-db0c-41e6-a894-f969d7bc0f0d" ChangeDateTime="07/23/2018 13:44:07">
+    <Property Name="ElementName" Value="[dbo].[CompCvLanguageRequirement].[LanguageRequirement]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CompCvLanguageRequirement]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LanguageRequirementId" />
+  </Operation>
+</Operations>

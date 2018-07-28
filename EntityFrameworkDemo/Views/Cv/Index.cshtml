@@ -1,0 +1,54 @@
+﻿@using EntityFrameworkDemo.Helpers
+@model IEnumerable<EntityFrameworkDemo.Models.ViewModel.CompCvVM>
+
+@{
+    ViewBag.Title = "Index";
+    var countryDict = ViewBag.CountryDict as Dictionary<Guid, string>;
+    var countyDict = ViewBag.CountyDict as Dictionary<Guid, string>;
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayName("Country Name")
+        </th>
+        <th>
+            @Html.DisplayName("County Name")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayName(countryDict.GetValue(item.CountryId))
+        </td>
+        <td>
+            @Html.DisplayName(countyDict.GetValue(item.CountyId))
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.CvId  }) |
+            @Html.ActionLink("Details", "Details", new {  id=item.CvId  }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.CvId  })
+        </td>
+    </tr>
+}
+
+</table>

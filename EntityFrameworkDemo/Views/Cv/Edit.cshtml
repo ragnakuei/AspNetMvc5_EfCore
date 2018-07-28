@@ -1,0 +1,131 @@
+﻿@model EntityFrameworkDemo.Models.ViewModel.CompCvVM
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>CompCvVM</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.CvId, new { htmlAttributes = new { @class = "form-control" } })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CountryId, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.CountryId, null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.CountryId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CountyId, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.CountyId, null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.CountyId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @for (var i = 0; i < Model.Educations.Count; i++)
+    {
+        @CustomHiddenId($"Educations[{i}].EducationId", Model.Educations[i].EducationId)
+        <div class="form-group">
+            @Html.Label(nameof(Model.Educations) + i, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input name="@($"Educations[{i}].AcademyName")" value="@(Model.Educations[i].AcademyName)" class="form-control" />
+            </div>
+        </div>
+    }
+
+    @for (var i = 0; i < Model.Certificates.Count; i++)
+    {
+        @CustomHiddenId($"Certificates[{i}].CertificateId",Model.Certificates[i].CertificateId)
+        <div class="form-group">
+            @Html.Label(nameof(Model.Certificates) + i, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input name="@($"Certificates[{i}].CertificateName")" value="@(Model.Certificates[i].CertificateName)" class="form-control" />
+            </div>
+        </div>
+    }
+
+    @for (var i = 0; i < Model.LanguageRequirements.Count; i++)
+    {
+        @CustomHiddenId($"LanguageRequirements[{i}].LanguageRequirementId",Model.LanguageRequirements[i].LanguageRequirementId)
+        <div class="form-group">
+            @Html.Label($"Language{i}", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @CustomDropDownListForLanguage($"LanguageRequirements[{i}].Language",
+                                               ViewBag.Language as IEnumerable<SelectListItem>,
+                                               Model.LanguageRequirements[i].Language)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label($"Listening{i}", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @CustomDropDownListForListening($"LanguageRequirements[{i}].Listening",
+                                                ViewBag.Listening as IEnumerable<SelectListItem>,
+                                                Model.LanguageRequirements[i].Listening)
+            </div>
+        </div>
+    }
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+@helper CustomDropDownListForLanguage(string name, IEnumerable<SelectListItem> options, byte language)
+{
+    <select name="@(name)" class="form-control">
+        @foreach (var item in options)
+        {
+            <option value="@(item.Value)" @(item.Value == language.ToString() ? "selected" : "" ) >@( item.Text)</option>
+        }
+    </select>
+}
+
+@helper CustomDropDownListForListening(string name, IEnumerable<SelectListItem> options, byte listening)
+{
+    <select name="@(name)" class="form-control">
+        @foreach (var item in options)
+        {
+            <option value="@(item.Value)" @(item.Value == listening.ToString() ? "selected" : "" ) >@( item.Text)</option>
+        }
+    </select>
+}
+
+@helper CustomHiddenId(string name,Guid? id)
+{
+    <input type="hidden" name="@(name)" value="@(id)">
+}
