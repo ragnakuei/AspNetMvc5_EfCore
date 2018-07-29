@@ -3,27 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using EntityFrameworkDemo.IBLL;
 using EntityFrameworkDemo.IDAL;
-using EntityFrameworkDemo.Log;
 using EntityFrameworkDemo.Models.EntityModel;
 using EntityFrameworkDemo.Models.Shared;
 using EntityFrameworkDemo.Models.ViewModel;
+using Microsoft.Extensions.Logging;
 
 namespace EntityFrameworkDemo.BLL
 {
     public class CountryBLL : ICountryBLL
     {
-        private readonly ICountryDAL _countryDal;
-        private readonly LogAdapter  _logger;
-        private readonly UserInfo    _userInfo;
+        private readonly ICountryDAL         _countryDal;
+        private readonly ILogger<CountryBLL> _logger;
+        private readonly UserInfo            _userInfo;
 
-        public CountryBLL(ICountryDAL countryDal,
-                          LogAdapter  logger,
-                          UserInfo    userInfo)
+        public CountryBLL(ICountryDAL         countryDal,
+                          ILogger<CountryBLL> logger,
+                          UserInfo            userInfo)
         {
             _countryDal = countryDal;
             _logger     = logger;
             _userInfo   = userInfo;
-            _logger.Initial(this.GetType().Name);
         }
 
         public List<CountryVM> Get()

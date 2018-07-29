@@ -4,26 +4,25 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using EntityFrameworkDemo.IBLL;
-using EntityFrameworkDemo.Log;
 using EntityFrameworkDemo.Models.Shared;
 using EntityFrameworkDemo.Models.ViewModel;
+using Microsoft.Extensions.Logging;
 
 namespace EntityFrameworkDemo.Controllers
 {
     public class CvController : Controller
     {
-        private readonly ICvBLL     _cvBLL;
-        private readonly LogAdapter _logAdapter;
-        private readonly UserInfo   _userInfo;
+        private readonly ICvBLL                _cvBLL;
+        private readonly ILogger<CvController> _logAdapter;
+        private readonly UserInfo              _userInfo;
 
-        public CvController(ICvBLL     cvBLL,
-                            LogAdapter logAdapter,
-                            UserInfo   userInfo)
+        public CvController(ICvBLL                cvBLL,
+                            ILogger<CvController> logAdapter,
+                            UserInfo              userInfo)
         {
             _userInfo   = userInfo;
             _cvBLL      = cvBLL;
             _logAdapter = logAdapter;
-            _logAdapter.Initial(GetType().Name);
         }
 
         public ActionResult Index()

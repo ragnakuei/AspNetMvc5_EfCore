@@ -3,27 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using EntityFrameworkDemo.IBLL;
 using EntityFrameworkDemo.IDAL;
-using EntityFrameworkDemo.Log;
 using EntityFrameworkDemo.Models.EntityModel;
 using EntityFrameworkDemo.Models.Shared;
 using EntityFrameworkDemo.Models.ViewModel;
+using Microsoft.Extensions.Logging;
 
 namespace EntityFrameworkDemo.BLL
 {
     public class CvBLL : ICvBLL
     {
-        private readonly ICvDAL     _cvDal;
-        private readonly LogAdapter _logger;
-        private readonly UserInfo   _userInfo;
+        private readonly ICvDAL         _cvDal;
+        private readonly ILogger<CvBLL> _logger;
+        private readonly UserInfo       _userInfo;
 
-        public CvBLL(ICvDAL     cvDal,
-                     LogAdapter logger,
-                     UserInfo   userInfo)
+        public CvBLL(ICvDAL         cvDal,
+                     ILogger<CvBLL> logger,
+                     UserInfo       userInfo)
         {
             _cvDal    = cvDal;
             _logger   = logger;
             _userInfo = userInfo;
-            _logger.Initial(GetType().Name);
         }
 
         public List<CompCvVM> Get()

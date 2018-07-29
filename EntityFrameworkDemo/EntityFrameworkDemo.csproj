@@ -96,6 +96,9 @@
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.4.5.7\lib\net45\NLog.dll</HintPath>
     </Reference>
+    <Reference Include="NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.Extensions.Logging.1.2.0\lib\net461\NLog.Extensions.Logging.dll</HintPath>
+    </Reference>
     <Reference Include="Remotion.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
       <HintPath>..\packages\Remotion.Linq.2.2.0\lib\net45\Remotion.Linq.dll</HintPath>
     </Reference>
@@ -221,7 +224,6 @@
     <Compile Include="Helpers\CultureEnumHelpers.cs" />
     <Compile Include="Helpers\CultureHelper.cs" />
     <Compile Include="IDAL\ICvDAL.cs" />
-    <Compile Include="Log\LogAdapter.cs" />
     <Compile Include="Models\EntityModel\ActionReceipt.cs" />
     <Compile Include="Models\EntityModel\ActionReceiptNoteLanguage.cs" />
     <Compile Include="Models\EntityModel\CompCvLanguageRequirement.cs" />
@@ -290,7 +292,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49266</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49266/</IISUrl>
+          <IISUrl>http://localhost:49267/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

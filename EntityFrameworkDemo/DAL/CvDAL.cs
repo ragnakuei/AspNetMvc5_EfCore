@@ -3,27 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using EntityFrameworkDemo.EF;
 using EntityFrameworkDemo.IDAL;
-using EntityFrameworkDemo.Log;
 using EntityFrameworkDemo.Models.EntityModel;
 using EntityFrameworkDemo.Models.Shared;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace EntityFrameworkDemo.DAL
 {
     public class CvDAL : ICvDAL, IDisposable
     {
-        private readonly DemoDbContext _dbContext;
-        private readonly LogAdapter _logger;
-        private UserInfo _userInfo;
+        private readonly DemoDbContext  _dbContext;
+        private readonly ILogger<CvDAL> _logger;
+        private          UserInfo       _userInfo;
 
-        public CvDAL(DemoDbContext dbContext,
-                     LogAdapter logger,
-                     UserInfo userInfo)
+        public CvDAL(DemoDbContext  dbContext,
+                     ILogger<CvDAL> logger,
+                     UserInfo       userInfo)
         {
             _dbContext = dbContext;
-            _logger = logger;
-            _userInfo = userInfo;
-            _logger.Initial<CountyDAL>();
+            _logger    = logger;
+            _userInfo  = userInfo;
         }
 
         public IEnumerable<CompCv> Get()

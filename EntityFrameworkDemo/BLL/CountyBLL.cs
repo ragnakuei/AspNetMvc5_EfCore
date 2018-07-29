@@ -3,30 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using EntityFrameworkDemo.IBLL;
 using EntityFrameworkDemo.IDAL;
-using EntityFrameworkDemo.Log;
 using EntityFrameworkDemo.Models.EntityModel;
 using EntityFrameworkDemo.Models.Shared;
 using EntityFrameworkDemo.Models.ViewModel;
+using Microsoft.Extensions.Logging;
 
 namespace EntityFrameworkDemo.BLL
 {
     public class CountyBLL : ICountyBLL
     {
-        private readonly ICountyDAL  _countyDal;
-        private readonly ICountryDAL _countryDal;
-        private readonly LogAdapter  _logger;
-        private readonly UserInfo    _userInfo;
+        private readonly ICountyDAL         _countyDal;
+        private readonly ICountryDAL        _countryDal;
+        private readonly ILogger<CountyBLL> _logger;
+        private readonly UserInfo           _userInfo;
 
-        public CountyBLL(ICountyDAL  countyDal,
-                         ICountryDAL countryDal,
-                         LogAdapter  logger,
-                         UserInfo    userInfo)
+        public CountyBLL(ICountyDAL         countyDal,
+                         ICountryDAL        countryDal,
+                         ILogger<CountyBLL> logger,
+                         UserInfo           userInfo)
         {
             _countyDal  = countyDal;
             _countryDal = countryDal;
             _logger     = logger;
             _userInfo   = userInfo;
-            _logger.Initial(this.GetType().Name);
         }
 
         public List<CountyVM> Get()

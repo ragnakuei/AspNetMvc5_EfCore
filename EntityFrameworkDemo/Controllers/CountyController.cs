@@ -4,26 +4,25 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using EntityFrameworkDemo.IBLL;
-using EntityFrameworkDemo.Log;
 using EntityFrameworkDemo.Models.Shared;
 using EntityFrameworkDemo.Models.ViewModel;
+using Microsoft.Extensions.Logging;
 
 namespace EntityFrameworkDemo.Controllers
 {
     public class CountyController : Controller
     {
-        private readonly ICountyBLL _bll;
-        private readonly LogAdapter _logAdapter;
-        private readonly UserInfo   _userInfo;
+        private readonly ICountyBLL                _bll;
+        private readonly ILogger<CountyController> _logAdapter;
+        private readonly UserInfo                  _userInfo;
 
-        public CountyController(ICountyBLL bll, 
-                                LogAdapter logAdapter, 
-                                UserInfo userInfo)
+        public CountyController(ICountyBLL                bll,
+                                ILogger<CountyController> logAdapter,
+                                UserInfo                  userInfo)
         {
             _userInfo   = userInfo;
             _bll        = bll;
             _logAdapter = logAdapter;
-            _logAdapter.Initial(this.GetType().Name);
         }
 
         public ActionResult Index()
