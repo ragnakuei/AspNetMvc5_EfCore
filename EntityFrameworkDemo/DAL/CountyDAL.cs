@@ -37,22 +37,14 @@ namespace EntityFrameworkDemo.DAL
 
         public County Get(Guid id)
         {
-            // 分開查詢
             var county = _dbContext.County
-                                    .AsNoTracking()
-                                    .FirstOrDefault(c => c.CountyId == id);
+                                   .FromSql("select * from County")
+                                   .Include(c => c.CountyLanguages)
+                                   .AsNoTracking()
+                                   .FirstOrDefault();
             if(county == null)
                 throw new Exception("查無資料");
 
-            var countyLanguage = _dbContext.CountyLanguage
-                                            .Where(l => l.CountyId == id
-                                                        && l.Language == _userInfo.CurrentLanguage)
-                                            .AsNoTracking();
-            county.CountyLanguages = countyLanguage.ToList();
-
-            county.Country = _dbContext.Country
-                                       .AsNoTracking()
-                                       .First(c => c.CountryId == county.CountryId);
             return county;
         }
 
